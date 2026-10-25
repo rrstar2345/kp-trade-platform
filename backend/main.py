@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 from fastapi import FastAPI, WebSocket, WebSocketDisconnect
 from fastapi.middleware.cors import CORSMiddleware
 
-from .config import settings
+from config import settings
 from .db.database import init_db
 from .ws.manager import manager
 from .api.health import router as health_router

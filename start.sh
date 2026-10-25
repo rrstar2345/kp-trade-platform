@@ -13,11 +13,11 @@ if [ ! -f .env ]; then
   echo "  Created backend/.env from example — edit ENCRYPTION_KEY if needed"
 fi
 if [ ! -d .venv ]; then
-  python3 -m venv .venv
+  uv venv
   echo "  Created Python venv"
 fi
 source .venv/bin/activate
-pip install -q -r requirements.txt
+uv pip install -q -r requirements.txt
 echo "  Backend dependencies ready"
 uvicorn main:app --reload --port 8000 &
 BACKEND_PID=$!
