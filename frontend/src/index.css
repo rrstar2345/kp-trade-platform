@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html, body, #root {
+    @apply h-full bg-surface text-slate-100 antialiased;
+  }
+
+  * {
+    @apply box-border;
+  }
+
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-surface-1;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded;
+  }
+}
+
+/* react-grid-layout overrides */
+.react-grid-item.react-grid-placeholder {
+  @apply bg-accent/20 rounded-lg border border-accent/40 border-dashed;
+}
+.react-resizable-handle {
+  @apply opacity-0 transition-opacity;
+}
+.react-grid-item:hover .react-resizable-handle {
+  @apply opacity-100;
+}
