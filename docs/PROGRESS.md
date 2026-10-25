@@ -18,7 +18,7 @@
 | P0-03: Database schema | ✅ | Included in P0-01: accounts, layout_config, order_log tables |
 | P0-04: Encryption utility | ✅ | Included in P0-01: AES-256-GCM in db/encryption.py |
 | P0-05: Docker Compose | ⬜ | Optional — skipped for now |
-| P0-06: End-to-end empty run | ⬜ | Run `./start.sh` to verify |
+| P0-06: End-to-end empty run | ✅ | Ran `./start.sh` and verified |
 
 ## Phase 1 — MVP
 | Task | Status | Notes |

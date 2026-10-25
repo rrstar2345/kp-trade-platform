@@ -12,8 +12,8 @@ A local trading copier app — run locally, access via browser.
 ## Quick Start
 ```bash
 # Backend
-cd backend && pip install -r requirements.txt
-uvicorn main:app --reload --port 8000
+cd backend && pip install -r requirements.txt && cd ..
+uvicorn backend.main:app --reload --port 8000
 
 # Frontend
 cd frontend && npm install && npm run dev

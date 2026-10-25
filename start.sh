@@ -19,7 +19,8 @@ fi
 source .venv/bin/activate
 uv pip install -q -r requirements.txt
 echo "  Backend dependencies ready"
-uvicorn main:app --reload --port 8000 &
+cd "$ROOT"
+uvicorn backend.main:app --reload --port 8000 &
 BACKEND_PID=$!
 echo "  Backend PID: $BACKEND_PID"
 

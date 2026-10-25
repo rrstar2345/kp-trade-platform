@@ -1,6 +1,20 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
+
+@theme {
+  --color-surface: #0f1117;
+  --color-surface-1: #161b27;
+  --color-surface-2: #1e2535;
+  --color-surface-3: #252d3d;
+  --color-accent: #3b82f6;
+  --color-accent-dim: #1d4ed8;
+  --color-profit: #22c55e;
+  --color-loss: #ef4444;
+  --color-muted: #64748b;
+  --color-border: #2a3347;
+
+  --font-family-sans: 'Inter', system-ui, sans-serif;
+  --font-family-mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
 
 @layer base {
   html, body, #root {
