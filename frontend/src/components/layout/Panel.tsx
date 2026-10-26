@@ -17,10 +17,11 @@ export function Panel({ panel }: Props) {
   return (
     <div className="flex flex-col h-full bg-surface-1 border border-border rounded-lg overflow-hidden">
       {/* Header / tab bar */}
-      <div className="flex items-center gap-1 px-2 py-1 bg-surface-2 border-b border-border min-h-[34px] shrink-0">
+      <div className="drag-handle cursor-grab active:cursor-grabbing flex items-center gap-1 px-2 py-1 bg-surface-2 border-b border-border min-h-[34px] shrink-0">
         {panel.widgets.map((w) => (
           <button
             key={w.id}
+            onMouseDown={(e) => e.stopPropagation()}
             onClick={() => setActiveTab(panel.id, w.id)}
             className={cn(
               'flex items-center gap-1.5 px-2.5 py-1 rounded text-xs font-medium transition-colors group',
@@ -31,6 +32,7 @@ export function Panel({ panel }: Props) {
           >
             {w.title}
             <span
+              onMouseDown={(e) => e.stopPropagation()}
               onClick={(e) => { e.stopPropagation(); removeWidget(panel.id, w.id) }}
               className="opacity-0 group-hover:opacity-100 hover:text-loss transition-opacity"
               title="Remove widget"
@@ -40,7 +42,7 @@ export function Panel({ panel }: Props) {
           </button>
         ))}
 
-        <div className="ml-auto flex items-center gap-1">
+        <div className="ml-auto flex items-center gap-1" onMouseDown={(e) => e.stopPropagation()}>
           <WidgetSelector onSelect={(type: WidgetType) => addWidget(panel.id, type)} />
           <button
             onClick={() => removePanel(panel.id)}

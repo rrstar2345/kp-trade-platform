@@ -2,7 +2,7 @@ from sqlalchemy import (
     Column, Integer, String, Boolean, Float, Text,
     ForeignKey, DateTime, func
 )
-from sqlalchemy.orm import declarative_base, relationship
+from sqlalchemy.orm import declarative_base, relationship, backref
 
 Base = declarative_base()
 
@@ -36,7 +36,11 @@ class Account(Base):
     created_at = Column(DateTime, server_default=func.now())
     updated_at = Column(DateTime, server_default=func.now(), onupdate=func.now())
 
-    children = relationship("Account", backref="parent", foreign_keys=[parent_id])
+    children = relationship(
+        "Account",
+        backref=backref("parent", remote_side="Account.id"),
+        foreign_keys=[parent_id],
+    )
 
 
 class LayoutConfig(Base):

@@ -65,7 +65,7 @@ export function GridLayout() {
           resizeHandles={['se']}
         >
           {panels.map((panel) => (
-            <div key={panel.id} className="drag-handle cursor-grab active:cursor-grabbing">
+            <div key={panel.id}>
               <Panel panel={panel} />
             </div>
           ))}
